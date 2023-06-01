@@ -7,7 +7,8 @@ const Mylist = () => {
   };
 
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center">
+      <h1>ToDo-List</h1>
       <input
         type="text"
         placeholder="Escribe aquí..."
@@ -15,7 +16,9 @@ const Mylist = () => {
         value={input}
         onKeyDown={validateInput}
       />
-      <span>Press Enter</span>
+      <span>
+        <button>Press Enter</button>
+      </span>
     </div>
   );
 };
