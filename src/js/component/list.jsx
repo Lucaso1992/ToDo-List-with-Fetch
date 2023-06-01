@@ -32,7 +32,9 @@ const Mylist = () => {
                   todos.filter((t, currentIndex) => index != currentIndex)
                 )
               }
-            ></button>
+            >
+              delete
+            </button>
           </li>
         ))}
       </ul>
