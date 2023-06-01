@@ -10,10 +10,12 @@ const Mylist = () => {
     <div>
       <input
         type="text"
+        placeholder="Escribe aquí..."
         onChange={(e) => setInput(e.target.value)}
         value={input}
+        onKeyDown={validateInput}
       />
-      <button onClick={validateInput}></button>
+      <span>Press Enter</span>
     </div>
   );
 };
