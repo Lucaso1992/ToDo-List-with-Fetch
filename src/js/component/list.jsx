@@ -21,13 +21,21 @@ const Mylist = () => {
             placeholder="What to do now?"
           ></input>
         </li>
-        {todos.map((t) => (
-          <li>{t}</li>
+        {todos.map((item, index) => (
+          <li>
+            {item}{" "}
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() =>
+                setTodos(
+                  todos.filter((t, currentIndex) => index != currentIndex)
+                )
+              }
+            ></button>
+          </li>
         ))}
       </ul>
-      <span>
-        <button>Press Enter</button>
-      </span>
     </div>
   );
 };
