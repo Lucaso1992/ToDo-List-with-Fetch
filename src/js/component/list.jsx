@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 
 const Mylist = () => {
-  const [] = useState []
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState([]);
+  const validateInput = () => {
+    if (input === input.length) useState.push(input);
+  };
 
-  const handleInput = (e) => {}
   return (
-
     <div>
-        <h1>hola</h1>
+      <input
+        type="text"
+        onChange={(e) => setInput(e.target.value)}
+        value={input}
+      />
+      <button onClick={validateInput}></button>
     </div>
   );
 };
-
 
 export default Mylist;
