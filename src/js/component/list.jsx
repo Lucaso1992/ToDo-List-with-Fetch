@@ -7,7 +7,7 @@ const Mylist = () => {
   return (
     <div className="d-flex flex-column align-items-center">
       <h1>ToDo-List</h1>
-      <ul>
+      <ul className="list-inline">
         <li>
           <input
             type="text"
