@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Mylist = () => {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
+  useEffect(() => {}, []);
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -16,6 +17,7 @@ const Mylist = () => {
             onKeyPress={(e) => {
               if (e.key === "Enter") {
                 setTodos(todos.concat(inputValue));
+                setInputValue("");
               }
             }}
             placeholder="What to do now?"
