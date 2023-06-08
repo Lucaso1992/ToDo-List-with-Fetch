@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { post } from "../services/post";
 import { get } from "../services/get";
+import { put } from "../services/put";
 
 const Mylist = () => {
   const [inputValue, setInputValue] = useState("");
@@ -10,6 +11,9 @@ const Mylist = () => {
       console.log(res);
       get("lucass").then((res) => {
         setTodos(res);
+        put("lucass").then((res) => {
+          setInputValue(res);
+        });
       });
     });
   }, []);
