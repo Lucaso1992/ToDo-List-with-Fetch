@@ -1,6 +1,6 @@
-export const post = (user) => {
+export const put = (user) => {
   return fetch(`https://assets.breatheco.de/apis/fake/todos/user/${user}`, {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-type": "application/json",
     },

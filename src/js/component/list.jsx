@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { post } from "../services/post";
+import { get } from "../services/get";
 
 const Mylist = () => {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    post("lucass").then((res) => {
+      console.log(res);
+      get("lucass").then((res) => {
+        setTodos(res);
+      });
+    });
+  }, []);
+  console.log(todos);
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -25,7 +35,7 @@ const Mylist = () => {
         </li>
         {todos.map((item, index) => (
           <li>
-            {item}{" "}
+            {item.label}{" "}
             <button
               type="button"
               className="btn btn-primary"
