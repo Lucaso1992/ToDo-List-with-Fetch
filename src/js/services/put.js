@@ -4,7 +4,7 @@ export const put = (user, todos) => {
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify({}),
+    body: JSON.stringify(todos),
   })
     .then((res) => {
       return res.json();

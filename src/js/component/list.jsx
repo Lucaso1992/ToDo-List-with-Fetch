@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { post } from "../services/post";
 import { get } from "../services/get";
 import { put } from "../services/put";
+import { deleteAll } from "../services/delete";
 
 const Mylist = () => {
   const [inputValue, setInputValue] = useState("");
@@ -11,13 +12,15 @@ const Mylist = () => {
       console.log(res);
       get("lucass").then((res) => {
         setTodos(res);
-        put("lucass").then((res) => {
-          setInputValue(res);
-        });
       });
     });
   }, []);
-  console.log(todos);
+
+  useEffect(() => {
+    if (todos.length > 1) {
+      put("lucass", todos);
+    }
+  }, [todos]);
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -30,7 +33,7 @@ const Mylist = () => {
             value={inputValue}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                setTodos(todos.concat(inputValue));
+                setTodos([...todos, { label: inputValue, done: false }]);
                 setInputValue("");
               }
             }}
@@ -54,6 +57,15 @@ const Mylist = () => {
           </li>
         ))}
       </ul>
+      <div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={deleteAll("lucass")}
+        >
+          delete All
+        </button>
+      </div>
     </div>
   );
 };
