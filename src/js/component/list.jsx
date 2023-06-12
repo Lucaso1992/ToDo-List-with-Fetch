@@ -17,9 +17,7 @@ const Mylist = () => {
   }, []);
 
   useEffect(() => {
-    if (todos.length > 1) {
-      put("lucass", todos);
-    }
+    put("lucass", todos);
   }, [todos]);
 
   return (
@@ -61,7 +59,13 @@ const Mylist = () => {
         <button
           type="button"
           className="btn btn-primary"
-          onClick={deleteAll("lucass")}
+          onClick={() => {
+            deleteAll("lucass").then(() => {
+              post("lucass").then(() => {
+                setTodos([]);
+              });
+            });
+          }}
         >
           delete All
         </button>
